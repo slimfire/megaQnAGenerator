@@ -3,7 +3,7 @@ var fs = require('fs');
 var util = function(){}
 
 util.prototype.format = function(path, callback) {
-	var set, questions = [], answers = [];
+	var set, questions = '', answers = '';
 
 	//read file with utf8 encoding
 	fs.readFile(path, 'utf8', function(error, data){
@@ -22,8 +22,8 @@ util.prototype.format = function(path, callback) {
 			if(i == 0){
 				question = (i + 1) + problem[0].substr(1, problem[0].length);
 			}
-			questions.push(question);
-			answers.push(answer);
+			questions += question;
+			answers += answer;
 
 			// if visited each problemset call back with the buckets
 			if(i == set.length - 1){
